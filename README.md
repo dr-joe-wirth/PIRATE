@@ -67,6 +67,25 @@ PIRATE can then be cloned from github and run using the file located at /PIRATE/
 ```
 git clone https://github.com/SionBayliss/PIRATE.git
 ```
+
+#### Conda (from environment file)
+Sometimes the `conda` installation can fail on certain machines. In those cases, `PIRATE` can be installed with the provided [`environment.yml` file](./environment.yml).
+
+> [!NOTE]
+> This does not install the dependencies required for plotting. These need to be installed separately.
+
+```bash
+# clone the repository
+git clone https://github.com/SionBayliss/PIRATE.git
+
+# create and activate the conda environment
+conda env create -f ./PIRATE/environment.yml
+conda activate pirate
+
+# test installation
+./PIRATE/bin/PIRATE --check
+```
+
 #### Homebrew / Linuxbrew
 ```
 brew install brewsci/bio/pirate
@@ -98,6 +117,7 @@ source("https://bioconductor.org/biocLite.R")
 biocLite("ggtree")
 
 ```
+
 
 ### Input format
 PIRATE accepts GFF3 annotation files containing matching nucleotide sequence at the end of the file. This is the format produced by [Prokka](http://www.vicbioinformatics.com/software.prokka.shtml). PIRATE will verify and discard files that do not follow the accepted GFF3 format and do not have a .gff extension before running. GFF3 files obtained from other sources, such as RAST or the NCBI, may sometime cause problems as they may not adhere to the accepted format. It is recommended that the nucleotide FASTA is downloaded (use ncbi-genome-download) and annotated with Prokka. If this is not possible to do so, for instance you wish to retain the reference genome naming scheme, then it is recommended that you check the fasta header matches the first field in the annotation and that the file contains locus_tag and or ID fields. 
