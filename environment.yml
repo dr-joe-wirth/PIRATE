@@ -1,0 +1,12 @@
+name: pirate
+dependencies:
+  - blast
+  - cd-hit
+  - diamond
+  - fasttree
+  - mafft
+  - mcl
+  - parallel
+  - perl-app-cpanminus
+  - perl-bioperl
+  - r-base
